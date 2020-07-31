@@ -15,7 +15,7 @@ namespace SpaceShooter.Game.Ship.Inputs
             
             Direction = new Vector2(horizontal, vertical);
 
-            if (Input.GetButtonDown("Shoot"))
+            if (Input.GetButton("Shoot"))
             {
                 OnShoot?.Invoke();
             }
