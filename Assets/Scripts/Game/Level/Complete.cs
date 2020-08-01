@@ -30,6 +30,11 @@ namespace SpaceShooter.Game.Level
         {
             if (_levelProgress.Killed >= _levelProgress.KillsNeed)
             {
+                if (Time.timeScale < 1f)
+                {
+                    return;
+                }
+                
                 LevelObject level = GameConfiguration.SelectedLevel;
                 level.LevelState = LevelState.Completed;
                 level.Commit();

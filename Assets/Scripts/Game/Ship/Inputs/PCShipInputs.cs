@@ -6,6 +6,7 @@ namespace SpaceShooter.Game.Ship.Inputs
     public class PCShipInputs : MonoBehaviour, IShipInputs
     {
         public Action OnShoot { get; set; }
+        public Action<Vector3> OnMove { get; set; }
         public Vector2 Direction { get; private set; }
 
         private void Update()

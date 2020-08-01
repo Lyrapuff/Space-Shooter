@@ -93,7 +93,9 @@ GameObject:
   - component: {fileID: 1208398293156287089}
   - component: {fileID: 7880035702915129321}
   - component: {fileID: 6445571910122109809}
+  - component: {fileID: 5390078280891704825}
   - component: {fileID: 7247069417298074870}
+  - component: {fileID: 1495611859332702548}
   - component: {fileID: -8920512170943217594}
   - component: {fileID: 6158320694235197661}
   m_Layer: 9
@@ -169,8 +171,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acda676cb144d53985c2b2538fcc066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHitCount: 2
+  _maxHitCount: 3
   _healthType: 1
+--- !u!114 &5390078280891704825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7880035702915129322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9693de48ab48eb8c15de2d234b556d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound:
+    _audioClip: {fileID: 8300000, guid: efa6d5d6b3672af469e23f973a56f28e, type: 3}
+    _volume: 0.5
 --- !u!114 &7247069417298074870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +202,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _targetHealthType: 0
+--- !u!114 &1495611859332702548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7880035702915129322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e1766fd30e4590b6d66a755bfadab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound:
+    _audioClip: {fileID: 8300000, guid: 534b9f2544028f441991e980fb7e2f5c, type: 3}
+    _volume: 1
 --- !u!114 &-8920512170943217594
 MonoBehaviour:
   m_ObjectHideFlags: 0

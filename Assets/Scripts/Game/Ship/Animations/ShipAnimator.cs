@@ -1,4 +1,5 @@
-﻿using SpaceShooter.Extensions;
+﻿using System;
+using SpaceShooter.Extensions;
 using SpaceShooter.Game.Ship.Inputs;
 using UnityEngine;
 
@@ -24,15 +25,25 @@ namespace SpaceShooter.Game.Ship.Animations
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            bool thruster = _shipInputs.Direction != Vector2.zero;
+            _shipInputs.OnMove += HandleMove;
+        }
+
+        private void OnDisable()
+        {
+            _shipInputs.OnMove -= HandleMove;
+        }
+
+        private void HandleMove(Vector3 direction)
+        {
+            bool thruster = direction != Vector3.zero;
             _animator.SetBool(Thruster, thruster);
 
-            bool strafe = _shipInputs.Direction.x != 0f;
+            bool strafe = direction.x != 0f;
             _animator.SetBool(Strafe, strafe);
 
-            _spriteRenderer.flipX = _shipInputs.Direction.x > 0f;
+            _spriteRenderer.flipX = direction.x > 0f;
         }
     }
 }

@@ -6,6 +6,6 @@ namespace SpaceShooter.Game.Ship.Inputs
     public interface IShipInputs
     {
         Action OnShoot { get; set; }
-        Vector2 Direction { get; }
+        Action<Vector3> OnMove { get; set; }
     }
 }

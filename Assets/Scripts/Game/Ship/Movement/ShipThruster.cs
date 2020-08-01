@@ -1,4 +1,5 @@
-﻿using SpaceShooter.Game.Ship.Inputs;
+﻿using System;
+using SpaceShooter.Game.Ship.Inputs;
 using UnityEngine;
 
 namespace SpaceShooter.Game.Ship.Movement
@@ -15,12 +16,31 @@ namespace SpaceShooter.Game.Ship.Movement
             _shipInputs = GetComponent<IShipInputs>();
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            Vector2 direction = _shipInputs.Direction;
+            _shipInputs.OnMove += HandleMove;
+        }
+
+        private void OnDisable()
+        {
+            _shipInputs.OnMove -= HandleMove;
+        }
+
+        private void HandleMove(Vector3 direction)
+        {
             Vector3 movement = new Vector3(direction.x, direction.y, 0f) * (_speed * Time.deltaTime);
 
             transform.position += movement;
+            
+            ClampPosition();
+        }
+
+        private void ClampPosition()
+        {
+            Vector3 position = transform.position;
+            position.x = Mathf.Clamp(position.x, -2f, 2f);
+            position.y = Mathf.Clamp(position.y, -4.5f, 4f);
+            transform.position = position;
         }
     }
 }
