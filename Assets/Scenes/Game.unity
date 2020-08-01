@@ -273,6 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 2121034293}
   _gameOverUI: {fileID: 2066036778}
+  _sound:
+    _audioClip: {fileID: 8300000, guid: 063fe5cbaf6ca4d42a51c670a8c7f066, type: 3}
+    _volume: 1
 --- !u!114 &28963566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +289,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _completeUI: {fileID: 1699961023}
+  _sound:
+    _audioClip: {fileID: 8300000, guid: 92f867c64a8220249bd2215c07fbae39, type: 3}
+    _volume: 1
 --- !u!114 &28963567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1801,7 +1807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.509434, g: 0.06488074, b: 0.24476974, a: 1}
-  m_EffectDistance: {x: 0, y: 0}
+  m_EffectDistance: {x: 0, y: -6}
   m_UseGraphicAlpha: 1
 --- !u!1 &1375564185
 GameObject:
@@ -1952,6 +1958,49 @@ MonoBehaviour:
   _sound:
     _audioClip: {fileID: 8300000, guid: d26527e0f388d0e4d84dbd823d043ff4, type: 3}
     _volume: 1
+--- !u!1 &1388165488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388165490}
+  - component: {fileID: 1388165489}
+  m_Layer: 0
+  m_Name: Prefs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1388165489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388165488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba477e039bf143bab3a95224a7a592f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1388165490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388165488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1408909248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,8 +2037,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: -12}
-  m_SizeDelta: {x: 300, y: 70}
+  m_AnchoredPosition: {x: 110, y: -6}
+  m_SizeDelta: {x: 50, y: 58}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1408909250
 MonoBehaviour:
@@ -2202,6 +2251,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1687062974}
+  - component: {fileID: 1687062976}
+  - component: {fileID: 1687062975}
   m_Layer: 5
   m_Name: Lives
   m_TagString: Untagged
@@ -2227,9 +2278,41 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 0}
-  m_SizeDelta: {x: 500, y: 70}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 105.09999, y: 34.999878}
+  m_SizeDelta: {x: 220, y: 70}
+  m_Pivot: {x: 0.34, y: 0.5}
+--- !u!114 &1687062975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687062973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de3784415764acb948bdac753d0a54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealth: {fileID: 2121034293}
+--- !u!95 &1687062976
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687062973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46ddeae48e7631b4181383331024ff29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1699961021
 GameObject:
   m_ObjectHideFlags: 0

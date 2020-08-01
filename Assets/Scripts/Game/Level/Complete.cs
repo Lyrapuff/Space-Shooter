@@ -1,4 +1,5 @@
 ﻿using Game;
+using SpaceShooter.Common.Audio;
 using SpaceShooter.Menu.UI;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace SpaceShooter.Game.Level
     public class Complete : MonoBehaviour
     {
         [SerializeField] private SwitchGroup _completeUI;
+        [SerializeField] private Sound _sound;
         
         private LevelProgress _levelProgress;
 
@@ -52,6 +54,8 @@ namespace SpaceShooter.Game.Level
                     PlayerPrefs.SetInt(key, level.Number);
                 }
 
+                AudioPlayer.Instance.PlaySoundOneShot(_sound);
+                
                 _completeUI.Switch();
                 Time.timeScale = 0f;
             }
