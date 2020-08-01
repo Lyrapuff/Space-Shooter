@@ -8,22 +8,16 @@ namespace SpaceShooter.Game.Bodies
         public Action OnHit { get; set; }
         
         [SerializeField] private int _damage;
-        [SerializeField] private LayerMask _layerMask;
-        
+        [SerializeField] private HealthType _targetHealthType;
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            int layer = other.gameObject.layer;
-            int layerMask = _layerMask.value;
+            Health health = other.GetComponent<Health>();
 
-            if (layerMask == (layerMask | (1 << layer)))
+            if (health != null && health.HealthType == _targetHealthType)
             {
-                Health health = other.GetComponent<Health>();
-
-                if (health != null)
-                {
-                    health.Hit(_damage);
-                    OnHit?.Invoke();
-                }
+                health.Hit(_damage);
+                OnHit?.Invoke();
             }
         }
     }

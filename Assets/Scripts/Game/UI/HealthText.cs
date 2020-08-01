@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SpaceShooter.UI.Game
+namespace SpaceShooter.Game.UI
 {
     [RequireComponent(typeof(Text))]
     public class HealthText : MonoBehaviour
@@ -14,10 +14,18 @@ namespace SpaceShooter.UI.Game
         private void Start()
         {
             _text = GetComponent<Text>();
-
-            _health.OnHit += Display;
             
             Display();
+        }
+
+        private void OnEnable()
+        {
+            _health.OnHit += Display;
+        }
+
+        private void OnDisable()
+        {
+            _health.OnHit -= Display;
         }
 
         private void Display()

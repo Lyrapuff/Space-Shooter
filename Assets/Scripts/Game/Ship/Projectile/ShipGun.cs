@@ -1,4 +1,5 @@
-﻿using SpaceShooter.Game.ObjectManagement;
+﻿using System;
+using SpaceShooter.Game.ObjectManagement;
 using SpaceShooter.Game.Ship.Inputs;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace SpaceShooter.Game.Ship.Projectile
     [RequireComponent(typeof(IShipInputs))]
     public class ShipGun : MonoBehaviour
     {
+        public Action OnShoot { get; set; }
+        
         [Tooltip("In seconds.")]
         [SerializeField] private float _reloadTime;
         [SerializeField] private ObjectPool _projectilePool;
@@ -28,6 +31,8 @@ namespace SpaceShooter.Game.Ship.Projectile
                 Transform projectile = _projectilePool.Create().transform;
                 projectile.position = transform.position + Vector3.up * 0.5f;
                 _shootTime = Time.time;
+                
+                OnShoot?.Invoke();
             }
         }
     }
